@@ -7,7 +7,7 @@ interface UserData {
     login: string;
     avatar_url: string;
     location: string;
-    url: string;
+    html_url: string;
 }
 
 const fetcher = async <T>(url: string, option?: RequestInit): Promise<T> => {
@@ -20,11 +20,11 @@ const fetcher = async <T>(url: string, option?: RequestInit): Promise<T> => {
     const data = await response.json();
     // console.log(data);
     return data;
-}
+} 
 
 const showCards = (user: UserData) => {
 
-    const { avatar_url, login, url } = user
+    const { avatar_url, login, html_url } = user
 
     main_container.insertAdjacentHTML('beforeend', `
         <div class="card">
@@ -35,7 +35,7 @@ const showCards = (user: UserData) => {
                 <img src="${avatar_url}" alt="${login}"/>
                 <p class="username">${login} </p> 
                 </div>
-                <a href="${url}">Github</a>
+                <a href="${html_url}" target="_blank">Github</a>
             </div>
         </div>
     `)

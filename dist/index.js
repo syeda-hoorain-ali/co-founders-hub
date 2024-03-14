@@ -12,7 +12,7 @@ const fetcher = async (url, option) => {
     return data;
 };
 const showCards = (user) => {
-    const { avatar_url, login, url } = user;
+    const { avatar_url, login, html_url } = user;
     main_container.insertAdjacentHTML('beforeend', `
         <div class="card">
             <img src="${avatar_url}" alt="${login}"/>
@@ -22,7 +22,7 @@ const showCards = (user) => {
                 <img src="${avatar_url}" alt="${login}"/>
                 <p class="username">${login} </p> 
                 </div>
-                <a href="${url}">Github</a>
+                <a href="${html_url}" target="_blank">Github</a>
             </div>
         </div>
     `);
